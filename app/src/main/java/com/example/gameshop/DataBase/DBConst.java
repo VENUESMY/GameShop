@@ -31,4 +31,17 @@ public class DBConst {
     public static final String CATEGORY_TABLE_NAME = "category";
     public static final String CATEGORY_ID = "id";
     public static final String CATEGORY_NAME = "name";
+
+    //Game categories
+    public static final String GAME_CATEGORIES_TABLE_NAME = "gameCategories";
+    public static final String GAME_CATEGORIES_ID = "id";
+    public static final String GAME_CATEGORIES_ID_GAME = "idGame";
+    public static final String GAME_CATEGORIES_ID_CATEGORY = "idCategory";
+
+    //Purchase games
+    public static final String PURCHASE_GAMES_TABLE_NAME = "purchaseGames";
+    public static final String PURCHASE_GAMES_ID = "id";
+    public static final String PURCHASE_GAMES_ID_GAME = "idGame";
+    public static final String PURCHASE_GAMES_ID_PURCHASE = "idPurchase";
+
 }
