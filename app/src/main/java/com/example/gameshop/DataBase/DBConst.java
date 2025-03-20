@@ -5,9 +5,9 @@ public class DBConst {
     public static final String DATABASE_NAME = "GameShop.db";
     public static final int DATABASE_VERSION = 1;
 
-    //Таблицы
+    //Tables
 
-    //Игры
+    //Games
     public static final String GAME_TABLE_NAME = "games";
     public static final String GAME_ID = "id";
     public static final String GAME_NAME = "name";
@@ -15,6 +15,6 @@ public class DBConst {
     public static final String GAME_PRICE = "price";
     public static final String GAME_ID_DEVELOPER = "idDeveloper";
 
-    //Разработчики
+    //Developers
     public static final String DEVELOPER_TABLE_NAME = "developers";
 }
