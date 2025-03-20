@@ -44,4 +44,8 @@ public class DBConst {
     public static final String PURCHASE_GAMES_ID_GAME = "idGame";
     public static final String PURCHASE_GAMES_ID_PURCHASE = "idPurchase";
 
+    //Create tables
+    public static final String CREATE_TABLE_DEVELOPER = "create table if not exists" +
+            DEVELOPER_TABLE_NAME + "( " + DEVELOPER_ID + " integer primary key autoincrement, " +
+            DEVELOPER_NAME + " text, " + DEVELOPER_DESCRIPTION + " text )";
 }
