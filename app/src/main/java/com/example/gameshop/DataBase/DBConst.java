@@ -48,4 +48,8 @@ public class DBConst {
     public static final String CREATE_TABLE_DEVELOPER = "create table if not exists" +
             DEVELOPER_TABLE_NAME + "( " + DEVELOPER_ID + " integer primary key autoincrement, " +
             DEVELOPER_NAME + " text, " + DEVELOPER_DESCRIPTION + " text )";
+
+    public static final String CREATE_TABLE_GAMES = "create table if not exists" +
+            GAME_TABLE_NAME + "( " + GAME_ID + " integer primary key autoincrement, " +
+            GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " integer )";
 }
