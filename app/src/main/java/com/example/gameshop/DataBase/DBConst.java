@@ -56,4 +56,16 @@ public class DBConst {
     public static final String CREATE_TABLE_PURCHASE = "create table if not exists" +
             PURCHASE_TABLE_NAME + "( " + PURCHASE_ID + " integer primary key autoincrement, " +
             PURCHASE_DATE + " text, " + PURCHASE_TOTAL_PRICE + " text )";
+
+    public static final String CREATE_TABLE_CATEGORY = "create table if not exists" +
+            CATEGORY_TABLE_NAME + "( " + CATEGORY_ID + " integer primary key autoincrement, " +
+            CATEGORY_NAME + " text )";
+
+    public static final String CREATE_TABLE_GAMES_CATEGORIES = "create table if not exists" +
+            GAME_CATEGORIES_TABLE_NAME + "( " + GAME_CATEGORIES_ID + " integer primary key autoincrement, " +
+            GAME_CATEGORIES_ID_GAME + " text, " + GAME_CATEGORIES_ID_CATEGORY + " text )";
+
+    public static final String CREATE_TABLE_PURCHASE_GAMES = "create table if not exists" +
+            PURCHASE_GAMES_TABLE_NAME + "( " + PURCHASE_GAMES_ID + " integer primary key autoincrement, " +
+            PURCHASE_GAMES_ID_GAME + " text, " + PURCHASE_GAMES_ID_PURCHASE + " text )";
 }
