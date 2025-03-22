@@ -49,7 +49,11 @@ public class DBConst {
             DEVELOPER_TABLE_NAME + "( " + DEVELOPER_ID + " integer primary key autoincrement, " +
             DEVELOPER_NAME + " text, " + DEVELOPER_DESCRIPTION + " text )";
 
-    public static final String CREATE_TABLE_GAMES = "create table if not exists" +
+    public static final String CREATE_TABLE_GAME = "create table if not exists" +
             GAME_TABLE_NAME + "( " + GAME_ID + " integer primary key autoincrement, " +
-            GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " integer )";
+            GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " text )";
+
+    public static final String CREATE_TABLE_PURCHASE = "create table if not exists" +
+            PURCHASE_TABLE_NAME + "( " + PURCHASE_ID + " integer primary key autoincrement, " +
+            PURCHASE_DATE + " text, " + PURCHASE_TOTAL_PRICE + " text )";
 }
