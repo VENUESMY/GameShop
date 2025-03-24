@@ -11,4 +11,16 @@ public class DBManager {
     public DBManager (Context context){
         dbHelper = new DBHelper(context);
     }
+
+    public void openDb(){
+        dbHelper.getWritableDatabase();
+    }
+
+    public void closeDb() {
+    }
+
+    //Блок разработчиков (Developer)
+    public void addDeveloper(){
+
+    }
 }
