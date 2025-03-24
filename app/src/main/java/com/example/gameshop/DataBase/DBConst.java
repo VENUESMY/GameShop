@@ -46,26 +46,37 @@ public class DBConst {
 
     //Create tables
     public static final String CREATE_TABLE_DEVELOPER = "create table if not exists" +
-            DEVELOPER_TABLE_NAME + "( " + DEVELOPER_ID + " integer primary key autoincrement, " +
+            DEVELOPER_TABLE_NAME + " ( " + DEVELOPER_ID + " integer primary key autoincrement, " +
             DEVELOPER_NAME + " text, " + DEVELOPER_DESCRIPTION + " text )";
 
     public static final String CREATE_TABLE_GAME = "create table if not exists" +
-            GAME_TABLE_NAME + "( " + GAME_ID + " integer primary key autoincrement, " +
-            GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " text )";
+            GAME_TABLE_NAME + " ( " + GAME_ID + " integer primary key autoincrement, " +
+            GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " integer, " + GAME_ID_DEVELOPER +
+            " integer, " +
+            "FOREIGN KEY (" + GAME_ID_DEVELOPER + ") REFERENCES " + DEVELOPER_TABLE_NAME + " (" +
+            DEVELOPER_ID + "))";
 
     public static final String CREATE_TABLE_PURCHASE = "create table if not exists" +
-            PURCHASE_TABLE_NAME + "( " + PURCHASE_ID + " integer primary key autoincrement, " +
-            PURCHASE_DATE + " text, " + PURCHASE_TOTAL_PRICE + " text )";
+            PURCHASE_TABLE_NAME + " ( " + PURCHASE_ID + " integer primary key autoincrement, " +
+            PURCHASE_DATE + " text, " + PURCHASE_TOTAL_PRICE + " integer )";
 
     public static final String CREATE_TABLE_CATEGORY = "create table if not exists" +
-            CATEGORY_TABLE_NAME + "( " + CATEGORY_ID + " integer primary key autoincrement, " +
+            CATEGORY_TABLE_NAME + " ( " + CATEGORY_ID + " integer primary key autoincrement, " +
             CATEGORY_NAME + " text )";
 
     public static final String CREATE_TABLE_GAMES_CATEGORIES = "create table if not exists" +
-            GAME_CATEGORIES_TABLE_NAME + "( " + GAME_CATEGORIES_ID + " integer primary key autoincrement, " +
-            GAME_CATEGORIES_ID_GAME + " text, " + GAME_CATEGORIES_ID_CATEGORY + " text )";
+            GAME_CATEGORIES_TABLE_NAME + " ( " + GAME_CATEGORIES_ID + " integer primary key autoincrement, " +
+            GAME_CATEGORIES_ID_GAME + " integer " + GAME_CATEGORIES_ID_CATEGORY + " integer " +
+           "FOREIGN KEY (" + GAME_CATEGORIES_ID_GAME + ") REFERENCES " + GAME_TABLE_NAME + " (" +
+            GAME_ID + ")," +
+            "FOREIGN KEY (" + GAME_CATEGORIES_ID_CATEGORY + ") REFERENCES " + CATEGORY_TABLE_NAME + " (" +
+            CATEGORY_ID + "))";
 
     public static final String CREATE_TABLE_PURCHASE_GAMES = "create table if not exists" +
-            PURCHASE_GAMES_TABLE_NAME + "( " + PURCHASE_GAMES_ID + " integer primary key autoincrement, " +
-            PURCHASE_GAMES_ID_GAME + " text, " + PURCHASE_GAMES_ID_PURCHASE + " text )";
+            PURCHASE_GAMES_TABLE_NAME + " ( " + PURCHASE_GAMES_ID + " integer primary key autoincrement, " +
+            PURCHASE_GAMES_ID_GAME + " integer, " + PURCHASE_GAMES_ID_PURCHASE + " integer, " +
+            "FOREIGN KEY (" + PURCHASE_GAMES_ID_GAME + ") REFERENCES " + GAME_TABLE_NAME + " (" +
+            GAME_ID + ")," +
+            "FOREIGN KEY (" + PURCHASE_GAMES_ID_PURCHASE + ") REFERENCES " + PURCHASE_GAMES_TABLE_NAME + " (" +
+            PURCHASE_ID + "))";
 }
