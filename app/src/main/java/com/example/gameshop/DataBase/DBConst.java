@@ -54,7 +54,7 @@ public class DBConst {
             GAME_NAME + " text, " + GAME_DESCRIPTION + " text, " + GAME_PRICE + " integer, " + GAME_ID_DEVELOPER +
             " integer, " +
             "FOREIGN KEY (" + GAME_ID_DEVELOPER + ") REFERENCES " + DEVELOPER_TABLE_NAME + " (" +
-            DEVELOPER_ID + "))";
+            DEVELOPER_ID + ") ON DELETE CASCADE)";
 
     public static final String CREATE_TABLE_PURCHASE = "create table if not exists" +
             PURCHASE_TABLE_NAME + " ( " + PURCHASE_ID + " integer primary key autoincrement, " +
@@ -68,15 +68,28 @@ public class DBConst {
             GAME_CATEGORIES_TABLE_NAME + " ( " + GAME_CATEGORIES_ID + " integer primary key autoincrement, " +
             GAME_CATEGORIES_ID_GAME + " integer " + GAME_CATEGORIES_ID_CATEGORY + " integer " +
            "FOREIGN KEY (" + GAME_CATEGORIES_ID_GAME + ") REFERENCES " + GAME_TABLE_NAME + " (" +
-            GAME_ID + ")," +
+            GAME_ID + ") ON DELETE CASCADE," +
             "FOREIGN KEY (" + GAME_CATEGORIES_ID_CATEGORY + ") REFERENCES " + CATEGORY_TABLE_NAME + " (" +
-            CATEGORY_ID + "))";
+            CATEGORY_ID + ") ON DELETE CASCADE)";
 
     public static final String CREATE_TABLE_PURCHASE_GAMES = "create table if not exists" +
             PURCHASE_GAMES_TABLE_NAME + " ( " + PURCHASE_GAMES_ID + " integer primary key autoincrement, " +
             PURCHASE_GAMES_ID_GAME + " integer, " + PURCHASE_GAMES_ID_PURCHASE + " integer, " +
             "FOREIGN KEY (" + PURCHASE_GAMES_ID_GAME + ") REFERENCES " + GAME_TABLE_NAME + " (" +
-            GAME_ID + ")," +
+            GAME_ID + ") ON DELETE CASCADE," +
             "FOREIGN KEY (" + PURCHASE_GAMES_ID_PURCHASE + ") REFERENCES " + PURCHASE_GAMES_TABLE_NAME + " (" +
-            PURCHASE_ID + "))";
+            PURCHASE_ID + ") ON DELETE CASCADE)";
+
+    //Delete tables
+    public static final String DROP_TABLE_DEVELOPER = "Drop table if exists " + DEVELOPER_TABLE_NAME;
+
+    public static final String DROP_TABLE_GAME = "Drop table if exists" + GAME_TABLE_NAME;
+
+    public static final String DROP_TABLE_CATEGORY = "Drop table if exists" + CATEGORY_TABLE_NAME;
+
+    public static final String DROP_TABLE_PURCHASE = "Drop table if exists" + PURCHASE_TABLE_NAME;
+
+    public static final String DROP_TABLE_GAMES_CATEGORIES = "Drop table if exists" + PURCHASE_GAMES_TABLE_NAME;
+
+    public static final String DROP_TABLE_PURCHASE_GAMES = "Drop table if exists" + GAME_CATEGORIES_TABLE_NAME;
 }

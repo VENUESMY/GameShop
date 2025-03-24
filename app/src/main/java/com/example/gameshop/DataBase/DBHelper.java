@@ -8,16 +8,27 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(@Nullable Context context) {
-        super(context, name, factory, version);
+        super(context, DBConst.DATABASE_NAME, null, DBConst.DATABASE_VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(DBConst.CREATE_TABLE_CATEGORY);
+        db.execSQL(DBConst.CREATE_TABLE_DEVELOPER);
+        db.execSQL(DBConst.CREATE_TABLE_PURCHASE);
+        db.execSQL(DBConst.CREATE_TABLE_GAME);
+        db.execSQL(DBConst.CREATE_TABLE_PURCHASE_GAMES);
+        db.execSQL(DBConst.CREATE_TABLE_GAMES_CATEGORIES);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL(DBConst.CREATE_TABLE_CATEGORY);
+        db.execSQL(DBConst.CREATE_TABLE_DEVELOPER);
+        db.execSQL(DBConst.CREATE_TABLE_PURCHASE);
+        db.execSQL(DBConst.CREATE_TABLE_GAME);
+        db.execSQL(DBConst.CREATE_TABLE_PURCHASE_GAMES);
+        db.execSQL(DBConst.CREATE_TABLE_GAMES_CATEGORIES);
+        onCreate(db);
     }
 }
