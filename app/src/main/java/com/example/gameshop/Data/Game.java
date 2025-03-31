@@ -8,6 +8,8 @@ public class Game {
     private int price;
     private int idDeveloper;
 
+    public Game(){}
+
     public Game(int id, String name, String description, int price, int idDeveloper) {
         this.id = id;
         this.name = name;

@@ -6,6 +6,8 @@ public class Purchase {
     private int date;
     private int totalPrice;
 
+    public Purchase(){}
+
     public Purchase(int id, int date, int totalPrice) {
         this.id = id;
         this.date = date;
