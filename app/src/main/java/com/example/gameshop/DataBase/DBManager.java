@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.gameshop.Data.Category;
 import com.example.gameshop.Data.Developer;
 import com.example.gameshop.Data.Game;
+import com.example.gameshop.Data.GameCategory;
+import com.example.gameshop.Data.GamesPurchase;
 import com.example.gameshop.Data.Purchase;
 
 import java.util.ArrayList;
@@ -167,5 +169,21 @@ public class DBManager {
         }
         cursor.close();
         return purchases;
+    }
+    //Блок игр в покупке
+
+    public void addGamesPurchase(GamesPurchase gamesPurchase){
+        ContentValues cv = new ContentValues();
+        cv.put(DBConst.PURCHASE_GAMES_ID_GAME, gamesPurchase.getIdGame());
+        cv.put(DBConst.PURCHASE_GAMES_ID_PURCHASE, gamesPurchase.getIdPurchase());
+        db.insert(DBConst.PURCHASE_GAMES_TABLE_NAME, null, cv);
+    }
+    //Блок категорий игры
+
+    public void addGameCategories(GameCategory gameCategory){
+        ContentValues cv = new ContentValues();
+        cv.put(DBConst.GAME_CATEGORIES_ID_GAME, gameCategory.getIdGame());
+        cv.put(DBConst.GAME_CATEGORIES_ID_CATEGORY, gameCategory.getIdCategory());
+        db.insert(DBConst.GAME_CATEGORIES_TABLE_NAME, null, cv);
     }
 }
