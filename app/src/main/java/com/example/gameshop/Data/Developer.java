@@ -11,6 +11,7 @@ public class Developer {
         this.name = name;
         this.description = description;
     }
+    public Developer(){}
 
     public int getId() {
         return id;
