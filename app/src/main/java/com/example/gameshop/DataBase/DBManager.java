@@ -123,6 +123,11 @@ public class DBManager {
                 DBConst.GAME_ID + " = " + game.getId(), null);
     }
 
+    public void deleteGame(Game game){
+        db.delete(DBConst.GAME_TABLE_NAME,
+                DBConst.GAME_ID + " = " + game.getId(), null);
+    }
+
     @SuppressLint("Range")
     public List<Game> getAllGame(){
         List<Game> games = new ArrayList<>();
@@ -153,6 +158,11 @@ public class DBManager {
         cv.put(DBConst.PURCHASE_DATE, purchase.getDate());
         cv.put(DBConst.PURCHASE_TOTAL_PRICE, purchase.getTotalPrice());
         db.update(DBConst.PURCHASE_TABLE_NAME, cv,
+                DBConst.PURCHASE_ID + " = " + purchase.getId(), null);
+    }
+
+    public void deletePurchase(Purchase purchase){
+        db.delete(DBConst.PURCHASE_TABLE_NAME,
                 DBConst.PURCHASE_ID + " = " + purchase.getId(), null);
     }
 
