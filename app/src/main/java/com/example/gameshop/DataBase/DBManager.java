@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.gameshop.Data.Category;
 import com.example.gameshop.Data.Developer;
 
 import java.util.ArrayList;
@@ -64,4 +65,39 @@ public class DBManager {
         cursor.close();
         return developers;
     }
+    //Блок категории
+
+    public void addCategory(Category category){
+        ContentValues cv = new ContentValues();
+        cv.put(DBConst.CATEGORY_NAME, category.getName());
+        db.insert(DBConst.CATEGORY_TABLE_NAME, null, cv);
+    }
+
+    public void changeCategory(Category category){
+        ContentValues cv = new ContentValues();
+        cv.put(DBConst.CATEGORY_NAME, category.getName());
+        db.update(DBConst.CATEGORY_TABLE_NAME, cv,
+                DBConst.CATEGORY_ID + " = " + category.getId(), null);
+    }
+
+    public void deleteCategory(Category category){
+        db.delete(DBConst.CATEGORY_TABLE_NAME,
+                DBConst.CATEGORY_ID + " = " + category.getId(), null);
+    }
+
+    @SuppressLint("Range")
+    public List<Category> getAllCategory(){
+        List<Category> categories = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * From " + DBConst.CATEGORY_TABLE_NAME,null);
+        while (cursor.moveToNext()){
+            Category category = new Category();
+            category.setId(cursor.getInt(cursor.getColumnIndex(DBConst.DEVELOPER_ID)));
+            category.setName(cursor.getString(cursor.getColumnIndex(DBConst.DEVELOPER_NAME)));
+            categories.add(category);
+        }
+        cursor.close();
+        return categories;
+    }
+
+
 }
