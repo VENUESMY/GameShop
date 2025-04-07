@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.GameFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/gameFragmentNameTVTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Название игры" />
+
+        <TextView
+            android:id="@+id/gameFragmentNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Тут название" />
+
+        <TextView
+            android:id="@+id/gameFragmentDescrptionTVTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Описание:" />
+
+        <TextView
+            android:id="@+id/gameFragmentDescrptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Тут описание" />
+
+        <TextView
+            android:id="@+id/gameFragmentDeveloperTVTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Разработчик:" />
+
+        <TextView
+            android:id="@+id/gameFragmentDeveloperTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Тут разработчик" />
+
+        <TextView
+            android:id="@+id/gameFragmentPriceTVTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Цена:" />
+
+        <TextView
+            android:id="@+id/gameFragmentPriceTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Тут цена" />
+    </LinearLayout>
+</FrameLayout>
